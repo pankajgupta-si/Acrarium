@@ -13,7 +13,7 @@ RUN /usr/lib/jvm/java-17-openjdk/bin/jlink \
 WORKDIR application
 #ARG JAR_FILE=build/libs/*.jar
 #COPY ${JAR_FILE} application.jar
-COPY build/libs/*.jar application.jar
+COPY --from=builder build/libs/*.jar application.jar
 RUN java -Djarmode=layertools -jar application.jar extract
 
 FROM alpine:latest
