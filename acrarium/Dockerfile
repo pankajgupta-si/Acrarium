@@ -12,11 +12,6 @@ RUN /usr/lib/jvm/java-17-openjdk/bin/jlink \
 
 WORKDIR application
 
-#############################################################################################################
-#RUN ./mvnw package
-#RUN java -jar build/libs/*.jar
-#############################################################################################################
-
 ARG JAR_FILE=build/libs/*.jar
 
 COPY ${JAR_FILE} application.jar
