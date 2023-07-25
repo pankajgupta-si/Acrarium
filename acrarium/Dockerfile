@@ -12,6 +12,8 @@ RUN /usr/lib/jvm/java-17-openjdk/bin/jlink \
 
 WORKDIR application
 ARG JAR_FILE=build/libs/*.jar
+RUN cd build/libs
+RUN ls
 COPY ${JAR_FILE} application.jar
 
 RUN java -Djarmode=layertools -jar application.jar extract
